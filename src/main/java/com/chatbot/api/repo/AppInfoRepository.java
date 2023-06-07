@@ -18,4 +18,6 @@ public interface AppInfoRepository extends CrudRepository<AppInfo, Integer> {
 	String getDbDetailsByAppNameAndEnvironment(String app, String env);
 	@Query("select url from AppInfo where appName = ?1 and environment = ?2")
 	String getUrlByAppNameAndEnvironment(String app, String env);
+	@Query("select distinct environment from AppInfo")
+	List<String> getAllEnv();
 }
